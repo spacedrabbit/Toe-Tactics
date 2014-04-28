@@ -15,12 +15,16 @@
 		145CDDAA190DA5E200F179E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 145CDDA9190DA5E200F179E5 /* AppDelegate.m */; };
 		145CDDAD190DA5E200F179E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 145CDDAB190DA5E200F179E5 /* Main.storyboard */; };
 		145CDDB0190DA5E200F179E5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 145CDDAF190DA5E200F179E5 /* ViewController.m */; };
-		145CDDB2190DA5E200F179E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145CDDB1190DA5E200F179E5 /* Images.xcassets */; };
 		145CDDB9190DA5E200F179E5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145CDDB8190DA5E200F179E5 /* XCTest.framework */; };
 		145CDDBA190DA5E200F179E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145CDD99190DA5E200F179E5 /* Foundation.framework */; };
 		145CDDBB190DA5E200F179E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145CDD9D190DA5E200F179E5 /* UIKit.framework */; };
 		145CDDC3190DA5E200F179E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 145CDDC1190DA5E200F179E5 /* InfoPlist.strings */; };
 		145CDDC5190DA5E200F179E5 /* ToeTacticsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 145CDDC4190DA5E200F179E5 /* ToeTacticsTests.m */; };
+		145CDDCF190DAF7400F179E5 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145CDDCE190DAF7400F179E5 /* Media.xcassets */; };
+		145CDDD9190DB01F00F179E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 145CDDD8190DB01F00F179E5 /* Images.xcassets */; };
+		145CDDDC190DB55700F179E5 /* BoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 145CDDDB190DB55700F179E5 /* BoardCell.m */; };
+		145CDDDF190DCE8700F179E5 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 145CDDDE190DCE8700F179E5 /* Player.m */; };
+		145CDDE2190DD5B700F179E5 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 145CDDE1190DD5B700F179E5 /* GameController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,12 +51,19 @@
 		145CDDAC190DA5E200F179E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		145CDDAE190DA5E200F179E5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		145CDDAF190DA5E200F179E5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		145CDDB1190DA5E200F179E5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		145CDDB7190DA5E200F179E5 /* ToeTacticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToeTacticsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		145CDDB8190DA5E200F179E5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		145CDDC0190DA5E200F179E5 /* ToeTacticsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ToeTacticsTests-Info.plist"; sourceTree = "<group>"; };
 		145CDDC2190DA5E200F179E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		145CDDC4190DA5E200F179E5 /* ToeTacticsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToeTacticsTests.m; sourceTree = "<group>"; };
+		145CDDCE190DAF7400F179E5 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		145CDDD8190DB01F00F179E5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ToeTactics/Images.xcassets; sourceTree = "<group>"; };
+		145CDDDA190DB55700F179E5 /* BoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardCell.h; sourceTree = "<group>"; };
+		145CDDDB190DB55700F179E5 /* BoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardCell.m; sourceTree = "<group>"; };
+		145CDDDD190DCE8700F179E5 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		145CDDDE190DCE8700F179E5 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		145CDDE0190DD5B700F179E5 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		145CDDE1190DD5B700F179E5 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +93,12 @@
 		145CDD8D190DA5E200F179E5 = {
 			isa = PBXGroup;
 			children = (
+				145CDDD8190DB01F00F179E5 /* Images.xcassets */,
 				145CDD9F190DA5E200F179E5 /* ToeTactics */,
 				145CDDBE190DA5E200F179E5 /* ToeTacticsTests */,
 				145CDD98190DA5E200F179E5 /* Frameworks */,
 				145CDD97190DA5E200F179E5 /* Products */,
+				145CDDCE190DAF7400F179E5 /* Media.xcassets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,12 +125,17 @@
 		145CDD9F190DA5E200F179E5 /* ToeTactics */ = {
 			isa = PBXGroup;
 			children = (
+				145CDDE0190DD5B700F179E5 /* GameController.h */,
+				145CDDE1190DD5B700F179E5 /* GameController.m */,
+				145CDDDA190DB55700F179E5 /* BoardCell.h */,
+				145CDDDB190DB55700F179E5 /* BoardCell.m */,
 				145CDDA8190DA5E200F179E5 /* AppDelegate.h */,
 				145CDDA9190DA5E200F179E5 /* AppDelegate.m */,
 				145CDDAB190DA5E200F179E5 /* Main.storyboard */,
 				145CDDAE190DA5E200F179E5 /* ViewController.h */,
 				145CDDAF190DA5E200F179E5 /* ViewController.m */,
-				145CDDB1190DA5E200F179E5 /* Images.xcassets */,
+				145CDDDD190DCE8700F179E5 /* Player.h */,
+				145CDDDE190DCE8700F179E5 /* Player.m */,
 				145CDDA0190DA5E200F179E5 /* Supporting Files */,
 			);
 			path = ToeTactics;
@@ -228,8 +246,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				145CDDB2190DA5E200F179E5 /* Images.xcassets in Resources */,
+				145CDDD9190DB01F00F179E5 /* Images.xcassets in Resources */,
 				145CDDA4190DA5E200F179E5 /* InfoPlist.strings in Resources */,
+				145CDDCF190DAF7400F179E5 /* Media.xcassets in Resources */,
 				145CDDAD190DA5E200F179E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,7 +270,10 @@
 			files = (
 				145CDDB0190DA5E200F179E5 /* ViewController.m in Sources */,
 				145CDDAA190DA5E200F179E5 /* AppDelegate.m in Sources */,
+				145CDDDC190DB55700F179E5 /* BoardCell.m in Sources */,
+				145CDDE2190DD5B700F179E5 /* GameController.m in Sources */,
 				145CDDA6190DA5E200F179E5 /* main.m in Sources */,
+				145CDDDF190DCE8700F179E5 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
