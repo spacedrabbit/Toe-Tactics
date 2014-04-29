@@ -12,10 +12,13 @@
 
 @property (strong, nonatomic, readonly) NSString *name;
 @property (strong, nonatomic, readonly) NSNumber *score;
-@property (strong, nonatomic, readonly) id icon;
+@property (strong, nonatomic) UIImage * icon;
 
 -(void) setPlayerName:(NSString *) name;
 -(void) setPlayerScore:(NSNumber *) score;
--(void) setPlayerIcon:(id)icon;
+-(void) setPlayerIcon:(UIImage *)icon;
+
+-(void) addCellAtIndex:(NSIndexPath *) indexPath;
+-(NSMutableSet *) allOwnedCells;
 
 @end

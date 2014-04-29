@@ -8,6 +8,7 @@
 
 #import "GameController.h"
 #import "BoardCell.h"
+#import "Player.h"
 
 @interface GameController ()
 
@@ -23,15 +24,14 @@
     self = [super init];
     if(self){
         _playerList = [NSMutableArray arrayWithObjects:one, two, nil];
-        _round = [NSNumber numberWithInt:1];
+        _round = 1;
         _player1Turn = arc4random_uniform(2);
         _gridSize = size;
         
         _currentPlayer = _playerList[_player1Turn];
         _winComparisonSet = [NSMutableArray array];
         
-        [self roundBegin];
-        [self createWinConditions];
+        [self createWinConditions];//game starts and win conditions are set
     }
     
     return self;
@@ -45,35 +45,47 @@
     return FALSE;
 }
 
--(void) roundBegin{
+-(BOOL) winCheck{
     
-    if (self.player1Turn) {
+    //1st round where a win can occur is (size*2 - 1) --> 3 X's, 2 O's --> 5 rounds
+    if ( self.round >= ((self.gridSize * 2) -1) ) {
         
-    }
-    
-}
-
--(void) winCheck{
-    
-    if ([self.round compare:[NSNumber numberWithInt:6]] == NSOrderedSame) {
-        //first round of a potential win will be after 6 plays have been made
-        NSLog(@"Checking for wins");
-        
-        if (!self.allCells) {
-            self.allCells = [NSArray arrayWithArray:[self.gameGrid indexPathsForVisibleItems]];
+        //checks to see if a winSet is a subset of a player's owned cells, if so... WINRARRR
+        for (NSSet * winSet in self.winComparisonSet) {
+            if ( [winSet isSubsetOfSet:[self.currentPlayer allOwnedCells]] ) {
+                return TRUE;
+            }
         }
-#warning Create logic here.
     }
+    return FALSE;
 }
 
 -(void) updateRound{
-    self.round = [NSNumber numberWithInt:([self.round intValue] + 1)];
+    
+    /*
+        1 - Check for win
+            - should end here potentially
+     
+        2 - Update round
+        3 - Update Round Info on view delegate
+     
+        4 - Change Bool for player turn
+        5 - Based on Bool, switch between player @[0,1]
+     */
+    if ([self winCheck]) {
+        NSLog(@"O MAN YOU WON!");
+    };
+    
+    self.round++;
+    [self.delegate updateRoundInformation:self.round];
+    
     self.player1Turn = !self.player1Turn;
     self.currentPlayer = self.playerList[self.player1Turn];
-    [self.delegate updateRoundInformation:self.round];
-    [self winCheck];
+
 }
 
+
+// Create criteria for wins. Scalable with odd # of side lengths... if needed
 -(void) createWinConditions{
     
     // where x = current number (section or index)
@@ -84,7 +96,8 @@
     NSInteger row;
     NSMutableSet * diagonalSet = [NSMutableSet set];
 
-    //horizontal wins ->  cell[x][0-n]
+    //horizontal wins ->  cell[x][0-n] (i.e row: 0, sections: 0-max)
+    //vertical wins -> cell[0-n][x];    (i.e row: 0-max, section: 0)
     for (int i = 0; i < self.gridSize; i++) {
         NSMutableSet * horizontalSet = [NSMutableSet set];
         NSMutableSet * verticalSet = [NSMutableSet set];
@@ -97,13 +110,13 @@
             containerPath = [NSIndexPath indexPathForItem:row   inSection:section];
             [horizontalSet addObject:containerPath];
             
+            //grabs 1st diagonal, index[x-n][x-n]
             if ( section == row ) {
                 [diagonalSet addObject:containerPath];
             }
             
             containerPath = [NSIndexPath indexPathForItem:section   inSection:row];
             [verticalSet addObject:containerPath];
-            
         }
         [self.winComparisonSet addObject:horizontalSet];
         [self.winComparisonSet addObject:verticalSet];
@@ -113,9 +126,26 @@
         }
     }
     
-#warning remove these logs at end
-    NSLog(@"Number of Comparison Sets: %lu", [self.winComparisonSet count]);
+    //opposite diagonal, cell[0 - (max-1)][(max-1) - 0];
+    int diagBound = self.gridSize-1;
+    diagonalSet = [NSMutableSet set];
+    for (int i = 0; i <= diagBound ; i++ ){
+        NSIndexPath * diag = [NSIndexPath indexPathForRow:i inSection:diagBound-i];
+        [diagonalSet addObject:diag];
+    }
+    [self.winComparisonSet addObject:diagonalSet];
+    
+    #warning Remove this before sending
+    /*
+    NSLog(@"Number of Comparison Sets: %lu", (unsigned long)[self.winComparisonSet count]);
     NSLog(@"%@\n", self.winComparisonSet);
+
+    for (NSArray * comparisonSets in self.winComparisonSet) {
+        NSLog(@"Comparison set: \n");
+        for (NSIndexPath *path in comparisonSets) {
+            NSLog(@"(IndexPath) [%u ,  %u] \n", path.section, path.row);
+        }
+    }*/
     
 }
 

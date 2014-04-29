@@ -12,7 +12,7 @@
 
 @protocol GameControllerDelegate <NSObject>
 
--(void)updateRoundInformation:(NSNumber *)round;
+-(void)updateRoundInformation:(NSInteger)round;
 
 @end
 
@@ -24,13 +24,12 @@
 @property (strong, nonatomic) UICollectionView * gameGrid;
 @property (strong, nonatomic) NSArray * allCells;
 
-@property (nonatomic) NSNumber * round;
+@property (nonatomic) NSInteger round;
 @property (nonatomic) BOOL player1Turn;
 
 @property (nonatomic, strong) id<GameControllerDelegate> delegate;
 
 -(BOOL)gameOver;
-
 -(instancetype)initGameWithPlayer1:(Player *)one andPlayer2:(Player *)two withGridSize:(NSInteger) size;
 -(void) updateRound;
 

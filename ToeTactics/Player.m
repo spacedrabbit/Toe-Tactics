@@ -12,8 +12,7 @@
 
 @property (strong, nonatomic) NSString * name;
 @property (strong, nonatomic) NSNumber * score;
-
-@property (strong, nonatomic) id icon;
+@property (strong, nonatomic) NSMutableSet * ownedCells;
 
 @end
 
@@ -26,7 +25,9 @@
         _name = @"Player1";
         _score = [NSNumber numberWithUnsignedInteger:0];
         
-        _icon = nil;
+        _icon = [UIImage new];
+        _ownedCells = [NSMutableSet set];
+
     }
     
     return self;
@@ -36,7 +37,7 @@
     self.name = name;
 }
 
--(void)setPlayerIcon:(id)icon{
+-(void) setPlayerIcon:(UIImage *)icon{
     self.icon = icon;
 }
 
@@ -49,5 +50,14 @@
     
 }
 
+-(void) addCellAtIndex:(NSIndexPath *)indexPath{
+    
+    [self.ownedCells addObject:indexPath];
+    
+}
+
+-(NSMutableSet *) allOwnedCells{
+    return self.ownedCells;
+}
 
 @end

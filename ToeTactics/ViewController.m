@@ -141,7 +141,7 @@
         destinationFrame = player2TurnIconSpot;
     }
     
-    [UIView animateWithDuration:0.5 delay:0.1
+    [UIView animateWithDuration:1.0 delay:0.1
                                  options:UIViewAnimationCurveLinear
                             animations:^{
                                     [self.turnIcon setFrame:destinationFrame];
@@ -169,12 +169,16 @@
         [player2 setPlayerName:[self.player2name text]];
         [player2 setPlayerIcon:self.oIcon];
         [self.player2icon setImage:player2.icon];
-        
+
         //change textfields
         self.player1name.enabled = FALSE;
         [self.player1name setBorderStyle:UITextBorderStyleNone];
+        self.player1name.textAlignment = NSTextAlignmentCenter;
+        
         self.player2name.enabled = FALSE;
         [self.player2name setBorderStyle:UITextBorderStyleNone];
+        self.player2name.textAlignment = NSTextAlignmentCenter;
+
         
         NSLog(@"Player 1: %@", player1.name);
         NSLog(@"Player 2: %@", player2.name);
@@ -187,9 +191,9 @@
     
 }
 
--(void)updateRoundInformation:(NSNumber *)round{
+-(void)updateRoundInformation:(NSInteger) round{
     
-    self.roundLabel.text = [NSString stringWithFormat:@"Round: %@",round];
+    self.roundLabel.text = [NSString stringWithFormat:@"Round: %i",round];
     
 }
 
@@ -225,11 +229,15 @@
     
     BoardCell * selectedCell = (BoardCell *)[collectionView cellForItemAtIndexPath:indexPath];
     Player * currentPlayer = self.game.currentPlayer;
-    NSLog(@"NSIndexPath: %@    Section: %d    Row: %d", indexPath, indexPath.section, indexPath.row);
-    [selectedCell setUserInteractionEnabled:FALSE];
-    [selectedCell setPlayerIcon:currentPlayer.icon];
-    [selectedCell setOwner:currentPlayer];
-    [self.game updateRound];
+    //NSLog(@"NSIndexPath: %@    Section: %d    Row: %d", indexPath, indexPath.section, indexPath.row);
+#warning probably moving this line to cellatindexpath will solve bug with enabled cells.. or in willSelect... this property itself is bugged, look at code for uicollectionviewCell
+    [selectedCell setUserInteractionEnabled:selectedCell.selected];//false by default
+    [selectedCell setIcon:currentPlayer.icon forPlayer:currentPlayer];
+    
+    [currentPlayer addCellAtIndex:indexPath];
+    if ([selectedCell isUserInteractionEnabled]) {
+       [self.game updateRound];
+    }
     
 }
 
