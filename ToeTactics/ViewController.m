@@ -111,7 +111,7 @@
 
     
     if (!self.game) {
-        self.game = [[GameController alloc] initGameWithPlayer1:player1 andPlayer2:player2];
+        self.game = [[GameController alloc] initGameWithPlayer1:player1 andPlayer2:player2 withGridSize:GRIDSIZE];
     }
     [self.game setDelegate:self];
     self.game.gameGrid = self.gameBoard;
@@ -204,10 +204,12 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    //cols
     return GRIDSIZE;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    //rows
     return GRIDSIZE;
 }
 
@@ -223,7 +225,7 @@
     
     BoardCell * selectedCell = (BoardCell *)[collectionView cellForItemAtIndexPath:indexPath];
     Player * currentPlayer = self.game.currentPlayer;
-    
+    NSLog(@"NSIndexPath: %@    Section: %d    Row: %d", indexPath, indexPath.section, indexPath.row);
     [selectedCell setUserInteractionEnabled:FALSE];
     [selectedCell setPlayerIcon:currentPlayer.icon];
     [selectedCell setOwner:currentPlayer];

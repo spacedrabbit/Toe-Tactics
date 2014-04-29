@@ -31,7 +31,7 @@
 
 -(BOOL)gameOver;
 
--(instancetype) initGameWithPlayer1:(Player *) one andPlayer2:(Player *) two;
+-(instancetype)initGameWithPlayer1:(Player *)one andPlayer2:(Player *)two withGridSize:(NSInteger) size;
 -(void) updateRound;
 
 @end
