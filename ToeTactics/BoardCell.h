@@ -14,7 +14,6 @@
 @property (strong, nonatomic) UIImageView * iconView;
 @property (nonatomic) BOOL cellSelected;
 
--(id) returnCellOwner;
--(void) setIcon:(UIImage *)icon forPlayer:(id)player;
+-(void) setIcon:(UIImage *)icon;
 
 @end

@@ -61,7 +61,7 @@
 }
 
 -(void) updateRound{
-    
+
     /*
         1 - Check for win
             - should end here potentially
@@ -127,7 +127,7 @@
     }
     
     //opposite diagonal, cell[0 - (max-1)][(max-1) - 0];
-    int diagBound = self.gridSize-1;
+    long diagBound = self.gridSize - 1;
     diagonalSet = [NSMutableSet set];
     for (int i = 0; i <= diagBound ; i++ ){
         NSIndexPath * diag = [NSIndexPath indexPathForRow:i inSection:diagBound-i];
@@ -135,8 +135,10 @@
     }
     [self.winComparisonSet addObject:diagonalSet];
     
-    #warning Remove this before sending
     /*
+     
+     // Uncomment this section to verify win conditions
+     
     NSLog(@"Number of Comparison Sets: %lu", (unsigned long)[self.winComparisonSet count]);
     NSLog(@"%@\n", self.winComparisonSet);
 

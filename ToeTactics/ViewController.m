@@ -193,7 +193,7 @@
 
 -(void)updateRoundInformation:(NSInteger) round{
     
-    self.roundLabel.text = [NSString stringWithFormat:@"Round: %i",round];
+    self.roundLabel.text = [NSString stringWithFormat:@"Round: %li",(long)round];
     
 }
 
@@ -202,7 +202,7 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 
     BoardCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+
     return cell;
     
 }
@@ -229,10 +229,12 @@
     
     BoardCell * selectedCell = (BoardCell *)[collectionView cellForItemAtIndexPath:indexPath];
     Player * currentPlayer = self.game.currentPlayer;
+    
+    //uncomment to verify correct cells being selected
     //NSLog(@"NSIndexPath: %@    Section: %d    Row: %d", indexPath, indexPath.section, indexPath.row);
-#warning probably moving this line to cellatindexpath will solve bug with enabled cells.. or in willSelect... this property itself is bugged, look at code for uicollectionviewCell
+
     [selectedCell setUserInteractionEnabled:selectedCell.selected];//false by default
-    [selectedCell setIcon:currentPlayer.icon forPlayer:currentPlayer];
+    [selectedCell setIcon:currentPlayer.icon];
     
     [currentPlayer addCellAtIndex:indexPath];
     if ([selectedCell isUserInteractionEnabled]) {
