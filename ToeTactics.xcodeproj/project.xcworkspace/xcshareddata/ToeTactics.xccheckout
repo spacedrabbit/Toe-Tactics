@@ -10,22 +10,26 @@
 	<string>ToeTactics</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>3FFE0149B88447DD1C2F1CC9AC1B04465D4F8AF0</key>
+		<string>https://github.com/spacedrabbit/Toe-Tactics.git</string>
 		<key>B8993086-6C2E-47C6-B619-B4728FF6BCB9</key>
 		<string>https://github.com/spacedrabbit/Toe-Tactics.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ToeTactics.xcodeproj/project.xcworkspace</string>
+	<string>ToeTactics.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B8993086-6C2E-47C6-B619-B4728FF6BCB9</key>
+		<key>3FFE0149B88447DD1C2F1CC9AC1B04465D4F8AF0</key>
 		<string>../..</string>
+		<key>B8993086-6C2E-47C6-B619-B4728FF6BCB9</key>
+		<string>../../../Toe-Tactics</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/spacedrabbit/Toe-Tactics.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B8993086-6C2E-47C6-B619-B4728FF6BCB9</string>
+	<string>3FFE0149B88447DD1C2F1CC9AC1B04465D4F8AF0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>B8993086-6C2E-47C6-B619-B4728FF6BCB9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Toe-Tactics</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3FFE0149B88447DD1C2F1CC9AC1B04465D4F8AF0</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ToeTactics</string>
 		</dict>
 	</array>
 </dict>

@@ -58,6 +58,7 @@
     //need to adjust for the header view which I guess is automatically included
     [self.gameBoard setContentInset:UIEdgeInsetsMake(-45.0, 0.0, 0.0, 5.0)];
     
+    //locations for where the current player image should be
     player1TurnIconSpot = CGRectMake(140.0, 15.0, 40.0, 40.0);
     player2TurnIconSpot = CGRectMake(140.0, 62.0, 40.0, 40.0);
     [self.turnIcon setFrame:player1TurnIconSpot];
@@ -119,11 +120,10 @@
     
 }
 
-#warning this is currently bugged for when it's player 2's turn
 -(void) updateTurnIcon{
     
     /*
-     // Bugged if I try to move from 1 location to the other, unsure why
+     // bugged, uncomment to fix later
      
     NSLog(@"Player 1 X:  %f   Y:%f    W:%f    H:%f" ,player1TurnIconSpot.origin.x, player1TurnIconSpot.origin.y, player1TurnIconSpot.size.width, player1TurnIconSpot.size.height);
     
@@ -141,7 +141,7 @@
         destinationFrame = player2TurnIconSpot;
     }
     
-    [UIView animateWithDuration:1.0 delay:0.1
+    [UIView animateWithDuration:.80 delay:0.0
                                  options:UIViewAnimationCurveLinear
                             animations:^{
                                     [self.turnIcon setFrame:destinationFrame];
@@ -239,6 +239,7 @@
     [currentPlayer addCellAtIndex:indexPath];
     if ([selectedCell isUserInteractionEnabled]) {
        [self.game updateRound];
+        [self updateTurnIcon];
     }
     
 }
